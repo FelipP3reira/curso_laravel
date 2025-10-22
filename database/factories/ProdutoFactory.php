@@ -25,10 +25,10 @@ class ProdutoFactory extends Factory
             'descricao' => $this->faker->unique()->paragraph(),
             'preco' => $this->faker->randomNumber(2),
             'slug'  => Str::slug('$nome'),
-            'imagem' => $this->faker->imageUrl(400,400),
+            'imagem' => 'https://via.placeholder.com/400x400.png?text=Produto+Teste',
             'id_user'=> User::pluck('id')->random(),
             //pluck e um metodo de extrair uma informacao da tabela
-            'id_categoria' => User::pluck('id')->random(),
+            'id_categoria' => Categoria::pluck('id')->random(),
         ];
     }
 }

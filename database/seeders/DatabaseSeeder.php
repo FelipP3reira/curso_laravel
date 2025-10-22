@@ -14,13 +14,15 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
-        // User::factory(10)->create();
-
-        $this->call([
-           //usersSeeder::class,
-          CategoriasSeeder::class,
-           ProdutosSeeder::class,
-        ]);
-    }
+{
+    // 1. CRIE OS USUÁRIOS (DESCOMENTADO)
+    User::factory(10)->create(); 
+    
+    $this->call([
+        // 2. Chame os seeders dependentes em ordem correta
+        // Se tiver um UserSeeder, use ele, senão, use a linha acima
+        CategoriasSeeder::class, // Categorias
+        ProdutosSeeder::class,   // Produtos (depende de Users e Categorias)
+    ]);
+}
 }

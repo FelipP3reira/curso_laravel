@@ -10,13 +10,21 @@
 
 </head>
 <body>
-
+   <ul id='dropdown1' class='dropdown-content'>
+    
+   @foreach ($categoriasMenu as $categoriaM)
+     <li><a href="#!">{{ $categoriaM->nome }}</a></li>
+   @endforeach
+  </ul>
      <nav class="red">
   <div class="nav-wrapper container">
     <a href="" class="brand-logo center">Curso Laravel</a>
     <ul id="nav-mobile" class="left">
       <li><a href="">Home</a></li>
+      <li><a href="" class='dropdown-trigger' data-target='dropdown1'> Categorias<i class="material-icons right">expand_more</i> </a></li>
       <li><a href="">Carrinho <span class="new badge">4</span></a></li>
+      
+
     </ul>
   </div>
 </nav>
@@ -27,5 +35,12 @@
     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      var elemDrop = document.querySelectorAll('.dropdown-trigger');
+      var instanceDrop = M.Dropdown.init(elemDrop, {
+          coverTrigger:false,
+          constrainWidth:false 
+});
+    </script>
 </body>
 </html>

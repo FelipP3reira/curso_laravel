@@ -15,7 +15,7 @@ class usersSeeder extends Seeder
     {
         //acao executavel
         User::create([
-            'firtsName' => 'Felipe',
+            'firstName' => 'Felipe',
             'lastName'  => 'Pereira',
             'email'     => 'contato@felipe.com',
             'password'=> bcrypt('12345678'),

@@ -16,6 +16,13 @@
      <li><a href="{{ route('site.categoria',$categoriaM->id) }}">{{ $categoriaM->nome }}</a></li>
    @endforeach
   </ul>
+
+  <ul id='dropdown2' class='dropdown-content'>
+     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a>
+       <li><a href="{{ route('login.logout') }}">Sair</a>
+      
+  </ul>
+
      <nav class="red">
   <div class="nav-wrapper container">
     <a href="" class="brand-logo center">Curso Laravel</a>
@@ -23,9 +30,17 @@
       <li><a href="{{ route('site.index') }}">Home</a></li>
       <li><a href="" class='dropdown-trigger' data-target='dropdown1'> Categorias<i class="material-icons right">expand_more</i> </a></li>
       <li><a href="{{ route('site.carrinho') }}">Carrinho <span class=" new badge blue" data-badge-caption=""> {{ \Cart::getContent()->count() }}</span></a></li>
-      
-
     </ul>
+
+    @auth
+    <ul id="nav-mobile" class="right">
+      <li><a href="" class='dropdown-trigger' data-target='dropdown2'> Ola {{ auth()->user()->firstName }}!<i class="material-icons right">expand_more</i> </a></li>
+    </ul>
+    @else
+     <ul id="nav-mobile" class="right">
+      <li><a href="{{ route('login.form') }}" class='dropdown'>Faça Login !<i class="material-icons right">lock</i> </a></li>
+      @endauth
+
   </div>
 </nav>
 

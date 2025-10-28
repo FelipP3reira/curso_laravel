@@ -17,3 +17,4 @@ class produto extends Model
             return $this->belongsTo(categoria::class,'id_categoria');
     }
 }
+ 

@@ -14,4 +14,4 @@ Senha: <br> <input type="password" name="password"> <br>
 
 <button type="submit">Cadastrar</button>
 
-</form>
+</form>  

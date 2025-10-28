@@ -4,12 +4,15 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarrinhoController;
 
 
 
-route::resource('home', ProdutoController::class);
+//route::resource('home', ProdutoController::class);
+//route::resource('users', UserController::class);
 
 Route::get('/', [SiteController::class,'index'])->name('site.index');
 
@@ -29,9 +32,19 @@ Route::get('/logout', [LoginController::class,'logout'])->name('login.logout');
 Route::post('/login', [ 'as' => 'login', 'login.form']);
 Route::get('/register', [LoginController::class,'create'])->name('login.create');
 
+
+
+
 Route::get('admin/dashboard', [DashboardController::class,'index'])->name('admin.dashboard')->middleware('auth','CheckEmail');
 Route::get('admin/dashboard', [DashboardController::class,'index'])
     ->name('admin.dashboard')
     ->middleware(['auth', 'auth.email']); // Use um ARRAY com os aliases
 
-    
+
+Route::get('/admin/produtos', [ProdutoController::class, 'index'])->name('admin.produtos');
+
+
+Route::post('/admin/produtos', [ProdutoController::class, 'store'])->name('admin.produto.store'); 
+
+
+Route::delete('/admin/produto/delete/{id}', [ProdutoController::class, 'destroy'])->name('admin.produto.delete');

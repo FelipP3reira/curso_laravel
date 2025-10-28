@@ -19,7 +19,7 @@ class LoginController extends Controller
         ]
     );
 
-        if(auth::attempt($credenciais)){
+        if(auth::attempt($credenciais, $request->remember)){
             $request->session()->regenerate();
             return redirect()->intended('/admin/dashboard');
         }
@@ -35,5 +35,9 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
          return redirect(route('site.index'));
+}
+
+public function create(){
+    return view('login.create');
 }
 }

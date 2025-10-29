@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'auth.email' => \App\Http\Middleware\CheckEmail::class, // SEU NOVO REGISTRO
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

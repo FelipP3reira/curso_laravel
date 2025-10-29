@@ -19,16 +19,21 @@ class ProdutoFactory extends Factory
      */
     public function definition(): array
     {
-        $nome = $this->faker->unique()->sentence();
+      $nome = $this->faker->unique()->sentence();
         return [
             'nome' => $nome,
             'descricao' => $this->faker->unique()->paragraph(),
             'preco' => $this->faker->randomNumber(2),
-            'slug'  => Str::slug('$nome'),
-            'imagem' => $this->faker->imageUrl(400,400),
+            
+            
+            'slug'  => Str::slug($nome), 
+            
+            'imagem' =>'/img/placeholder.jpg',
+            
             'id_user'=> User::pluck('id')->random(),
-            //pluck e um metodo de extrair uma informacao da tabela
-            'id_categoria' => User::pluck('id')->random(),
+            
+           
+            'id_categoria' => Categoria::pluck('id')->random(),
         ];
     }
 }

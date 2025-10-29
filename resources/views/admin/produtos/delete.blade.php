@@ -6,7 +6,7 @@
        
         <a href="#!" class="modal-close waves-effect waves-green btn blue right">Cancelar</a><br>
         
-        <form action="{{ route('admin.delete', $produto->id) }}" method="POST">
+        <form action="{{ route('admin.produto.delete', $produto->id) }}" method="POST">
             @method('DELETE')
             @csrf
       {{-- O botão de submit deve ser APENAS o <button> --}}

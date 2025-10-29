@@ -56,16 +56,13 @@
                     <td>{{ $produto->categoria->nome }}</td>
                     
                     
+                    <td>{{ $produto->categoria->nome }}</td>
                     <td>
                       <a href="#" class="btn-floating waves-effect waves-light orange"><i class="material-icons">mode_edit</i></a>
                       <a href="#modal-delete-{{ $produto->id }}" class="btn-floating modal-trigger waves-effect waves-light red"><i class="material-icons">delete</i></a>
                     </td>
-
                   </tr>
-
-                  
-                  @include("admin.produtos.delete")
-
+                   @include("admin.produtos.delete")
                    @endforeach
                 </tbody>
               </table>

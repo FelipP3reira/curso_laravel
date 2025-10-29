@@ -3,7 +3,7 @@
       <h4><i class="material-icons">playlist_add</i> Novo produto</h4>
       <div class="row">
 
-        <form action="{{ route('admin.produtos.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.produto.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <div class="row">
